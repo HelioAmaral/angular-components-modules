@@ -1,0 +1,24 @@
+<!--the app-divider is a component from the shared module-->
+<!--because we used ng-content in the divider component here we can simply write placeholder component between the <app-divider>-->
+<app-divider>
+    Placeholder Component
+</app-divider>
+
+<!--With property binding we define if the placeholder has a header and how many lines it displays-->
+<app-placeholder [header]="true" [lines]="5"></app-placeholder>
+
+<app-divider>
+    Segment Component
+</app-divider>
+
+<!--reusing the segment component with costumization. We use an header that angular will place whithin <ng-content select="header"> and place a button that angular will place whithin <ng-content>-->
+<app-segment>
+<header>
+    <i class="pdf file outline icon"></i>
+    No documents listed
+</header>
+<button class="ui primary button">
+    Add Document 
+</button>
+
+</app-segment>

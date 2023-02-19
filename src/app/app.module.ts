@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+//remove ElementsModule and CollectionsModule import to apply lazy loading
+//import { CollectionsModule } from './collections/collections.module';
+//import { ElementsModule } from './elements/elements.module';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent],
   imports: [
     BrowserModule,
+    //we import the ElementsModule and other modules so we can use everything inside this modules on our app
+    //ElementsModule,
+    //CollectionsModule,
+    //the appRoutingModule should always be imported in last position
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

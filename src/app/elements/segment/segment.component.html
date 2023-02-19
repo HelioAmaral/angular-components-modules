@@ -1,0 +1,8 @@
+<div class="ui placeholder segment">
+  <div class="ui icon header">
+    <!--we use ng-content with the select="header", this means when we re use this component angular will look for an element that is named header and place it in this location-->
+    <ng-content select="header"></ng-content>
+  </div>
+  <!--using ng-content allows to when we re-use this component we can place anything in its place-->
+  <ng-content></ng-content>
+</div>

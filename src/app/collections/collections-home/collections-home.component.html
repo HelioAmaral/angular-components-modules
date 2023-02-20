@@ -1,1 +1,6 @@
-<p>collections-home works!</p>
+<!--using app divider imported from shared module-->
+<app-divider>
+    Table Component
+</app-divider>
+<!--using property binding pass down from collections module.ts the table data and keys-->
+<app-table [data]="data" [headers]="headers"></app-table>

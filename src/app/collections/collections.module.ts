@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { CollectionsRoutingModule } from './collections-routing.module';
 import { CollectionsHomeComponent } from './collections-home/collections-home.component';
+import { TableComponent } from './table/table.component';
+//import shared module to use divider
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    CollectionsHomeComponent
+    CollectionsHomeComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
-    CollectionsRoutingModule
+    CollectionsRoutingModule,
+    //import shared module
+    SharedModule
   ], 
   //exports: [CollectionsHomeComponent]
 })

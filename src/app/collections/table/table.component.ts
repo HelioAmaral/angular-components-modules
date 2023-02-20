@@ -7,8 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
+//to allow us to pass class names from the parent component into the table component
+@Input() classNames = '';
+
+
   //we write the different properties we expect to receive inside our component class
   //by doing this we can now pass data from collections-home.html to the table component
-@Input() data = [];
-@Input() headers = [];
+@Input() data: any = [];
+@Input() headers: any = [];
 }

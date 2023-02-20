@@ -1,1 +1,21 @@
 <!--The table component receives data from the parent component (collections-home-component.html)-->
+<!--[ngClass] allows table to receive classNames from the parent component collections-home.html-->
+<table [ngClass]="classNames" class="ui table">
+  <thead>
+    <tr>
+      <!--*ngFor will loop through the headers array (collections-home.ts) and display for each object a th with {{header.label}}-->
+      <th *ngFor="let header of headers">
+        {{ header.label }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--ngFor goes through the data array and creates a tr for each object inside that array-->
+    <tr *ngFor="let record of data">
+      <!--ngFor goes through the headers again and checks the keys inside that array ob objects-->
+      <td *ngFor="let header of headers">
+        {{ record[header.key] }}
+      </td>
+    </tr>
+  </tbody>
+</table>

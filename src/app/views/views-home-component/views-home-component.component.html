@@ -1,0 +1,8 @@
+<app-divider>Statistics</app-divider>
+
+<!--We use the property binding to pass the stats property coming from views-home.ts into the statistics component-->
+<app-statistics [data]='stats'></app-statistics>
+
+<app-divider>Items List</app-divider>
+
+<app-item-list [items]="items"></app-item-list>

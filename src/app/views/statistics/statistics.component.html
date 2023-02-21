@@ -1,0 +1,11 @@
+<div class="ui statistics">
+  <!--the ngFor goes through the stats array in views-home-component.ts and when we call through interpolation stat.value ngFor will give us avery existing stat.value in the stats array-->
+  <div class="statistic" *ngFor="let stat of data">
+    <div class="value">
+      {{ stat.value }}
+    </div>
+    <div class="label">
+      {{ stat.label }}
+    </div>
+  </div>
+</div>

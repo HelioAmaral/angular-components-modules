@@ -1,7 +1,28 @@
 <!--using app divider imported from shared module-->
-<app-divider>
-    Table Component
-</app-divider>
+<app-divider> Table Component </app-divider>
 <!--using property binding pass down from collections module.ts the table data and keys-->
 <!--we can pass classNames into the table because we set the table component to receive classNames-->
-<app-table classNames="striped celled" [data]="data" [headers]="headers"></app-table>
+<app-table
+  classNames="striped celled"
+  [data]="data"
+  [headers]="headers"
+></app-table>
+
+<app-divider>Tab Menu</app-divider>
+
+<app-tabs>
+  <!--this code will replace <ng-content> inside the tabs component-->
+  <a class="item" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Biography</a>
+  
+        <!--by using [routerLinkActiveOptions]="{ exact: true }" we are telling angular to make this class active only when the exact path is collections/biography, if we dont do this, biography will always be active-->
+  
+  
+        <!--An alternative to the router link above would be: 
+      [routerLink]="['./']" where by using property binding angular will run through the array between the "" and use that code to design the path we want it to follow ['./'] will take us to collections ['./', 'hi'] will take us to collections/hi -->
+        <a class="item" routerLink="companies" routerLinkActive="active"
+          >Companies</a
+        >
+        <a class="item" routerLink="partners" routerLinkActive="active"
+          >Partners</a
+        >
+</app-tabs>

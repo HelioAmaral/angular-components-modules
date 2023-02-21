@@ -10,16 +10,30 @@ const routes: Routes = [
   //the loadChildren function is called everytime the user chooses this path
   //angular checks the contents of this function
   //.then returns the actual model we requested
-  { path: 'elements', loadChildren: () => import('./elements/elements.module').then((m) => m.ElementsModule)},
-{path: 'collections', loadChildren: () => import('./collections/collections.module').then((m) => m.CollectionsModule)},
+  {
+    path: 'elements',
+    loadChildren: () =>
+      import('./elements/elements.module').then((m) => m.ElementsModule),
+  },
+  {
+    path: 'collections',
+    loadChildren: () =>
+      import('./collections/collections.module').then(
+        (m) => m.CollectionsModule
+      ),
+  },
+  {
+    path: 'views',
+    loadChildren: () => import('./views/views.module').then((m) => m.ViewsModule)
+  },
   //define the home component path
-  { path: "", component: HomeComponent },
+  { path: '', component: HomeComponent },
   //define not found component path - the ** tells angular if he doesn't find the component requested by user, show the notFound component
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

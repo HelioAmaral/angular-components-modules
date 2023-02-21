@@ -1,0 +1,17 @@
+<div class="ui items">
+  <!--ngFor goes through the array of items present in the view-home-component-->
+  <div class="item" *ngFor="let item of items">
+    <div class="image">
+      <!--after the ngFor goes through the array we retrieve all the images with item.image-->
+      <img [src]="item.image" />
+    </div>
+    <div class="content">
+      <div class="header">{{ item.title }}</div>
+      <div class="description">
+        <p>
+          {{ item.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

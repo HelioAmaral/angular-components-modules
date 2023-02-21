@@ -1,0 +1,14 @@
+<div class="ui grid">
+    <div class="four wide column">
+      <div class="ui vertical fluid tabular menu">
+        <!--the ng content makes this component reusable because it allows us to replace it with the code that is specified within the same space where we reuse this component (check collections-home-component where we used the tabs.component)-->
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="twelve wide stretched column">
+      <div class="ui segment">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

@@ -1,21 +1,27 @@
-
 <!--onCloseClick method is called whenever the user clicks the dark area surronding the modal (dimmer) the close icon or the button OK-->
 <!--inside the modal component we define the onCloseClick method-->
 
 <div (click)="onCloseClick()" class="ui dimmer visible active">
-    <!--we need to add a stopPropagation method (JS and HTML) to the div that is just the child of the most parent one this method will stop the onCloseClick method to propagate to every element we click except those who are specified with that method-->
-    <div (click)="$event.stopPropagation()" class="ui modal visible active">
-        <i (click)="onCloseClick()" class="close icon"></i>
-        <div class="header">
-            MODAL!
-        </div>
-        <div class="content">
-            <p>
-                Content for the modal window goes HERE!
-            </p>
-        </div>
-        <div class="actions">
-            <button (click)="onCloseClick()" class="ui button">OK</button>
-        </div>
+  <!--we need to add a stopPropagation method (JS and HTML) to the div that is just the child of the most parent one this method will stop the onCloseClick method to propagate to every element we click except those who are specified with that method-->
+  <div (click)="$event.stopPropagation()" class="ui modal visible active">
+    <i (click)="onCloseClick()" class="close icon"></i>
+    <div class="header">
+      <!--because we can only have one basic ng-content if we need more we need to use select and give it an atribute [attributeName]-->
+      <ng-content select="[modalTitle]"></ng-content>
     </div>
+    <div class="content">
+      <!--replace the paragraph with ng-content, makes the modal reusable as when we use the modal component we can add content that will replace the ng-content-->
+      <ng-content></ng-content>
+      <!--<p>Content for the modal window goes HERE</p>-->
+    </div>
+
+    <!--below we have two possible buttons the first div is a button already in the component, the second div is a ng-content that allows the user to supply a button with the select attribute modalFooter-->
+    <!--we need to decide if we want to show the default content or the custom content, we can do this with CSS-->
+    <div class="actions actions-default">
+      <button (click)="onCloseClick()" class="ui button">OK</button>
+    </div>
+    <div class="actions">
+      <ng-content select="[modalFooter]"></ng-content>
+    </div>
+  </div>
 </div>

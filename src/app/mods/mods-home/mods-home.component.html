@@ -5,4 +5,14 @@
 
 <!--we add an event handler (close) this will allow the events we set on the child component modal.component to be communicated into this parent component-->
 <!--When we reference close in the <app-modal> we can now call the onClick() that will toggle the view of the modal like when we click the button Show Modal-->
-<app-modal (close)="onClick()" *ngIf="modalOpen"></app-modal>
+<app-modal (close)="onClick()" *ngIf="modalOpen">
+    <div modalTitle>Reusable Title</div>
+    <p>I am a reusable modal</p>
+    <ng-container modalFooter>
+        <button class="ui button" (click)="onClick()">Custom</button>
+    </ng-container>
+</app-modal>
+
+<app-divider>Accordion Component</app-divider>
+<!--we pass down the list of items created on the mods-home.component.ts-->
+<app-accordion [items]="items"></app-accordion>

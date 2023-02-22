@@ -1,0 +1,14 @@
+/* :empty will look for an element with class actions that has no child elements, no custom content inside*/
+.actions:empty{
+    display: none;
+}
+
+
+/*this css rule indicates that a div with a class actions-default should display nothing}*/
+.actions-default{
+    display: none;
+}
+/*this css complements the above saying if it finds an element empty but has a sibling with class actions-default should display as block*/
+.actions:empty + .actions-default{
+    display: block;
+}

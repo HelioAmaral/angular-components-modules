@@ -1,0 +1,19 @@
+<!--render the list of items-->
+<div class="ui accordion styled">
+    <!--ngFor to go through the list of items-->
+    <!--we use a ng-container because we don't want to wrap the displayed content with any element-->
+    <!--we need to know about the index of which item we are iterating over so we can update the property openedItemIndex, we do that by adding let i = index to the ngFor -->
+    <ng-container *ngFor="let item of items; let i = index">
+        <!--event handler (click) calling onClick() we pass in the method the variable i to know which index the user is clicking on-->
+        <div [ngClass]="{active: i === openedItemIndex }" class="title" (click)="onClick(i)">
+            <i class="dropdown icon"></i>
+            <!--using interpolation to get the items title-->
+            {{item.title}}
+        </div>
+        <!--we need to compare the index with the property openedItemIndex, if they are equal we apply the class active-->
+        <div [ngClass]="{active: i === openedItemIndex }" class="content">
+            <!--interpolation to get the items content-->
+            <p>{{item.content}}</p>
+        </div>
+    </ng-container>
+</div>

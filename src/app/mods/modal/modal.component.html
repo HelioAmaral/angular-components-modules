@@ -1,6 +1,11 @@
-<div class="ui dimmer visible active">
-    <div class="ui modal visible active">
-        <i class="close icon"></i>
+
+<!--onCloseClick method is called whenever the user clicks the dark area surronding the modal (dimmer) the close icon or the button OK-->
+<!--inside the modal component we define the onCloseClick method-->
+
+<div (click)="onCloseClick()" class="ui dimmer visible active">
+    <!--we need to add a stopPropagation method (JS and HTML) to the div that is just the child of the most parent one this method will stop the onCloseClick method to propagate to every element we click except those who are specified with that method-->
+    <div (click)="$event.stopPropagation()" class="ui modal visible active">
+        <i (click)="onCloseClick()" class="close icon"></i>
         <div class="header">
             MODAL!
         </div>
@@ -10,7 +15,7 @@
             </p>
         </div>
         <div class="actions">
-            <button class="ui button">OK</button>
+            <button (click)="onCloseClick()" class="ui button">OK</button>
         </div>
     </div>
 </div>

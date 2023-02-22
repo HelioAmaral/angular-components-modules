@@ -1,2 +1,8 @@
 <app-divider>Modal Component</app-divider>
-<app-modal></app-modal>
+<!--button to show modal, once clicked onClick method is called-->
+<button (click)="onClick()">Show Modal</button>
+<!--ngIf is set to modalOpen, it controls if the modal is shown! when we click Show Modal, the method is called, changes the property modalOpen and the component modal is shown or not due to ngIf-->
+
+<!--we add an event handler (close) this will allow the events we set on the child component modal.component to be communicated into this parent component-->
+<!--When we reference close in the <app-modal> we can now call the onClick() that will toggle the view of the modal like when we click the button Show Modal-->
+<app-modal (close)="onClick()" *ngIf="modalOpen"></app-modal>

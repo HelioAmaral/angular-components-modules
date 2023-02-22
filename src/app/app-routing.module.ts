@@ -15,6 +15,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./elements/elements.module').then((m) => m.ElementsModule),
   },
+  //lazy loading for collections
   {
     path: 'collections',
     loadChildren: () =>
@@ -22,9 +23,16 @@ const routes: Routes = [
         (m) => m.CollectionsModule
       ),
   },
+  //lazy loading for views module
   {
     path: 'views',
-    loadChildren: () => import('./views/views.module').then((m) => m.ViewsModule)
+    loadChildren: () =>
+      import('./views/views.module').then((m) => m.ViewsModule),
+  },
+  //lazy loading for mods component
+  {
+    path: 'mods',
+    loadChildren: () => import('./mods/mods.module').then((m) => m.ModsModule),
   },
   //define the home component path
   { path: '', component: HomeComponent },
